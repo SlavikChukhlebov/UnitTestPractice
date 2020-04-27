@@ -7,24 +7,26 @@ using std::string;
 // descending order from greatest (first) to least (third)
 void Practice::sortDescending(int & first, int & second, int & third)
 {
-  if( first < second )
-  {
-    int temp = first;
-    first = second;
-    second = temp;
-  }
-  if( second < third )
-  {
-    int temp = second;
-    second = third;
-    third = temp;
-  }
-  if( first < third )
-  {
-    int temp = first;
-    first = third;
-    third = temp;
-  }
+	int temp;
+	if(first < third)
+	{
+		temp = first;
+		first = third;
+		third = temp;
+	}
+	
+	if(first < second)
+	{
+		temp = first;
+		first = temp;
+		second = temp;
+	}
+	else if(second < third)
+	{
+		temp = second;
+		second = third;
+		third = temp;
+	}
 }
 
 // Receive a string and return whether or not it is strictly a palindrome,
@@ -32,7 +34,12 @@ void Practice::sortDescending(int & first, int & second, int & third)
 // character in the string, but disregarding case ('x' is the same as 'X')
 bool Practice::isPalindrome(string input)
 {
-  for(int i=0; i < input.size(); i++)
+	if(input.size() < 1)
+	{
+		return false;
+	}
+	
+  for(size_t i=0; i < input.size(); i++)
   {
     if( input[i] < 'A' || input[i] > 'Z' )
     {
@@ -40,7 +47,7 @@ bool Practice::isPalindrome(string input)
       input[i] = input[i] - ('a' - 'A');
     }
   }
-  for(int i=0; i < input.size()/2; i++)
+  for(size_t i=0; i < input.size()/2; i++)
   {
     if( input[i] != input[input.size()-1-i] )
       return false;

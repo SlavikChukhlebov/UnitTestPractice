@@ -2,6 +2,9 @@
 # all code in SOURCECODE subdirectory. This Makefile is based on the
 # sample Makefile provided in the official GoogleTest GitHub Repo v1.7
 
+#The below line is for compilation on my machine
+#GTEST_DIR = /usr/src/gtest
+
 # Flags passed to the preprocessor and compiler
 CPPFLAGS += --coverage -isystem $(GTEST_DIR)/include -std=c++11
 CXXFLAGS += -g -Wall -Wextra -pthread
